@@ -1,0 +1,16 @@
+{
+  "name": "threejs-requirejs",
+  "version": "0.83.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yosuke Matsusaka",
+  "license": "MIT",
+  "devDependencies": {
+    "js-beautify": "^1.6.8",
+    "sync-request": "^4.0.1",
+    "uglify-js": "^2.7.5"
+  }
+}
