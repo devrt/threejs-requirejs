@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>duck trajectory</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+              jquery: 'https://code.jquery.com/jquery-2.2.4.min',
+              threejs_requirejs: 'https://rawgit.com/devrt/threejs-requirejs/master/build/threejs-requirejs.min'
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>duck.position.x = v / 10</h1>
+    
+    <div id="t1" style="width:600px;height:400px"></div>
+    Drag this slider to move the duck: <input type="range" id="t1range" value="0">
+    
+    <script type="text/javascript">
+        require(['threejs_requirejs'], function() {
+            require(['jquery', 'duck-trajectory'], function($, duck_trajectory) {
+                var t1 = new duck_trajectory($('#t1').get(0));
+                t1.function = function(duck, v) {
+                    duck.position.x = v / 10;
+                };
+                $('#t1range').on('input change', function() {
+                    t1.update(parseFloat($(this).val()));
+                });
+            });
+        });
+    </script>
+
+    <h1>duck.position.y = v / 10</h1>
+    
+    <div id="t2" style="width:600px;height:400px"></div>
+    Drag this slider to move the duck: <input type="range" id="t2range" value="0">
+    
+    <script type="text/javascript">
+        require(['threejs_requirejs'], function() {
+            require(['jquery', 'duck-trajectory'], function($, duck_trajectory) {
+                var t2 = new duck_trajectory($('#t2').get(0));
+                t2.function = function(duck, v) {
+                    duck.position.y = v / 10;
+                };
+                $('#t2range').on('input change', function() {
+                    t2.update(parseFloat($(this).val()));
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
